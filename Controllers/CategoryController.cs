@@ -7,9 +7,16 @@ namespace Blog.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        [HttpGet("categories")]
-        [HttpGet("categorias")] /* dois endpoints para uma mesma action */
+        [HttpGet("v1/categories")] // versionamento
         public IActionResult Get(
+            [FromServices] BlogDataContext context)
+        {
+            IList<Category> categories = context.Categories.ToList();
+            return Ok(categories);
+        }
+
+        [HttpGet("v2/categories")]
+        public IActionResult Get2(
             [FromServices] BlogDataContext context)
         {
             IList<Category> categories = context.Categories.ToList();
