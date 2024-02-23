@@ -1,25 +1,18 @@
 ﻿using Blog.Data;
 using Blog.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Controllers
 {
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        [HttpGet("v1/categories")] // versionamento
-        public IActionResult Get(
+        [HttpGet("v1/categories")]
+        public async Task<IActionResult> GetAsync(
             [FromServices] BlogDataContext context)
         {
-            IList<Category> categories = context.Categories.ToList();
-            return Ok(categories);
-        }
-
-        [HttpGet("v2/categories")]
-        public IActionResult Get2(
-            [FromServices] BlogDataContext context)
-        {
-            IList<Category> categories = context.Categories.ToList();
+            IList<Category> categories = await context.Categories.ToListAsync();
             return Ok(categories);
         }
     }
