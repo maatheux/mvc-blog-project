@@ -115,6 +115,7 @@ C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.AssemblyInfo.cs
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.csproj.CoreCompileInputs.cache
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.sourcelink.json
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\staticwebassets\msbuild.Blog.Microsoft.AspNetCore.StaticWebAssets.props
@@ -123,9 +124,9 @@ C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Blog.props
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\scopedcss\bundle\Blog.styles.css
+C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.csproj.Up2Date
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.dll
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\refint\Blog.dll
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.pdb
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\ref\Blog.dll
-C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.csproj.Up2Date
