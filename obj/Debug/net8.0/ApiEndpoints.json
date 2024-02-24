@@ -29,7 +29,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Blog.Models.Category",
+        "Type": "Blog.ViewModels.CreateCategoryViewModel",
         "IsRequired": true
       }
     ],
