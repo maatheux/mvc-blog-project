@@ -81,6 +81,10 @@ namespace Blog.Controllers
             [FromRoute] int id,
             [FromBody] EditorCategoryViewModel model)
         {
+            //if (!ModelState.IsValid)
+            //    return BadRequest();
+            // o ASP.NET ja realiza essa validacao por padrao, mas caso seja necessario manipular uma validacao eh possivel usar o ModelState
+            
             try
             {
                 Category? category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
