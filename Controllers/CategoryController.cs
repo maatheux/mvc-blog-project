@@ -50,26 +50,15 @@ namespace Blog.Controllers
             [FromServices] BlogDataContext context,
             [FromBody] EditorCategoryViewModel model)
         {
-
-            //if (!ModelState.IsValid)
-            //    return BadRequest(new ResultViewModel<Category>(
-            //        ModelState.Values
-            //            .SelectMany(x => x.Errors)
-            //            .Select(x => x.ErrorMessage)
-            //            .ToList())
-            //    );
-
             if (!ModelState.IsValid)
                 return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
-            // o ASP.NET ja realiza essa validacao por padrao, mas caso seja necessario manipular uma validacao eh possivel usar o ModelState
-
 
             try
             {
                 Category category = new Category
                 {
                     Id = 0,
-                    Posts = [],
+                    Posts = new List<Post>(),
                     Name = model.Name,
                     Slug = model.Slug
                 };
@@ -80,7 +69,6 @@ namespace Blog.Controllers
             }
             catch (DbUpdateException e)
             {
-                // return BadRequest("Não foi inculir a categoria"); // qnd da requisicao invalida
                 return StatusCode(500, new ResultViewModel<Category>("05XE9 - Não foi possível inculir a categoria"));
             }
             catch (Exception e)
@@ -88,9 +76,7 @@ namespace Blog.Controllers
                 return StatusCode(500, new ResultViewModel<Category>("05XE10 Falha interna no servidor"));
             }
         }
-
-        // Deixei sem o retorno padrao nas actions abaixo
-
+        
         [HttpPut("v1/categories/{id:int}")]
         public async Task<IActionResult> PutAsync(
             [FromServices] BlogDataContext context,
@@ -98,14 +84,14 @@ namespace Blog.Controllers
             [FromBody] EditorCategoryViewModel model)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrors());
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
 
             try
             {
                 Category? category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
 
                 if (category == null)
-                    return NotFound();
+                    return NotFound(new ResultViewModel<Category>("Categoria não encontrada"));
 
                 category.Name = model.Name;
                 category.Slug = model.Slug;
@@ -113,15 +99,15 @@ namespace Blog.Controllers
                 context.Categories.Update(category);
                 await context.SaveChangesAsync();
 
-                return Ok(model);
+                return Ok(new ResultViewModel<Category>(category));
             }
             catch (DbUpdateException e)
             {
-                return StatusCode(500, "05XE8 - Não foi possível alterar a categoria");
+                return StatusCode(500, new ResultViewModel<Category>("05XE8 - Não foi possível alterar a categoria"));
             }
-            catch (Exception e)
+            catch
             {
-                return StatusCode(500, "05XE11 Falha interna no servidor");
+                return StatusCode(500, new ResultViewModel<Category>("05XE11 Falha interna no servidor"));
             }
         }
 
@@ -135,20 +121,20 @@ namespace Blog.Controllers
                 Category? category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
 
                 if (category == null)
-                    return NotFound();
+                    return NotFound(new ResultViewModel<Category>("Categoria não encontrada"));
 
                 context.Categories.Remove(category);
                 await context.SaveChangesAsync();
 
-                return Ok(category);
+                return Ok(new ResultViewModel<Category>(category));
             }
             catch (DbUpdateException e)
             {
-                return StatusCode(500, "05XE7 - Não foi possível deletar a categoria");
+                return StatusCode(500, new ResultViewModel<Category>("05XE7 - Não foi possível deletar a categoria"));
             }
-            catch (Exception e)
+            catch
             {
-                return StatusCode(500, "05XE12 Falha interna no servidor");
+                return StatusCode(500, new ResultViewModel<Category>("05XE12 Falha interna no servidor"));
             }
         }
     }
