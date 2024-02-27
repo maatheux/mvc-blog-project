@@ -1,4 +1,5 @@
 ﻿using Blog.Data;
+using Blog.Extensions;
 using Blog.Models;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +16,12 @@ namespace Blog.Controllers
         {
             try
             {
-                IList<Category> categories = await context.Categories.ToListAsync();
-                return Ok(categories);
+                var categories = await context.Categories.ToListAsync();
+                return Ok(new ResultViewModel<List<Category>>(categories));
             }
-            catch (Exception e)
+            catch
             {
-                return StatusCode(500, "05XE04 Falha interna no servidor");
+                return StatusCode(500, new ResultViewModel<List<Category>>("05XE04 Falha interna no servidor"));
             }
         }
 
@@ -34,13 +35,13 @@ namespace Blog.Controllers
                 Category? category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
 
                 if (category == null)
-                    return NotFound();
+                    return NotFound(new ResultViewModel<Category>("Categoria não encontrada"));
 
-                return Ok(category);
+                return Ok(new ResultViewModel<Category>(category));
             }
             catch (Exception e)
             {
-                return StatusCode(500, "05XE05 Falha interna no servidor");
+                return StatusCode(500, new ResultViewModel<Category>("05XE05 Falha interna no servidor"));
             }
         }
 
@@ -49,6 +50,19 @@ namespace Blog.Controllers
             [FromServices] BlogDataContext context,
             [FromBody] EditorCategoryViewModel model)
         {
+
+            //if (!ModelState.IsValid)
+            //    return BadRequest(new ResultViewModel<Category>(
+            //        ModelState.Values
+            //            .SelectMany(x => x.Errors)
+            //            .Select(x => x.ErrorMessage)
+            //            .ToList())
+            //    );
+
+            if (!ModelState.IsValid)
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
+            // o ASP.NET ja realiza essa validacao por padrao, mas caso seja necessario manipular uma validacao eh possivel usar o ModelState
+
 
             try
             {
@@ -62,18 +76,20 @@ namespace Blog.Controllers
                 await context.Categories.AddAsync(category);
                 await context.SaveChangesAsync();
 
-                return Created($"v1/categories/{category.Id}", category);
+                return Created($"v1/categories/{category.Id}", new ResultViewModel<Category>(category));
             }
             catch (DbUpdateException e)
             {
                 // return BadRequest("Não foi inculir a categoria"); // qnd da requisicao invalida
-                return StatusCode(500, "05XE9 - Não foi possível inculir a categoria");
+                return StatusCode(500, new ResultViewModel<Category>("05XE9 - Não foi possível inculir a categoria"));
             }
             catch (Exception e)
             {
-                return StatusCode(500, "05XE10 Falha interna no servidor");
+                return StatusCode(500, new ResultViewModel<Category>("05XE10 Falha interna no servidor"));
             }
         }
+
+        // Deixei sem o retorno padrao nas actions abaixo
 
         [HttpPut("v1/categories/{id:int}")]
         public async Task<IActionResult> PutAsync(
@@ -81,10 +97,9 @@ namespace Blog.Controllers
             [FromRoute] int id,
             [FromBody] EditorCategoryViewModel model)
         {
-            //if (!ModelState.IsValid)
-            //    return BadRequest();
-            // o ASP.NET ja realiza essa validacao por padrao, mas caso seja necessario manipular uma validacao eh possivel usar o ModelState
-            
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrors());
+
             try
             {
                 Category? category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
