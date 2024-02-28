@@ -19,7 +19,7 @@ public class TokenService
                 new (ClaimTypes.Name, "andrebaltieri"), // acesso pelo User.Identity.Name
                 new (ClaimTypes.Role, "admin"), // User.IsInRole()
                 new ("fruta", "banana")
-            }), // attr para setar os claims (afirmacaoes sobre o token). E o ASP.NET ja possui alguns tipos de claim
+            }), // attr para setar os claims (afirmacaoes sobre o token / objetos chave-valor). E o ASP.NET ja possui alguns tipos de claim
             Expires = DateTime.UtcNow.AddHours(8),
             SigningCredentials = new SigningCredentials
             (

@@ -1,7 +1,27 @@
+using System.Text;
+using Blog;
 using Blog.Data;
 using Blog.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; // autenticacao padrao Bearer
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; // token/autenticacao gerados neste servidor
+}).AddJwtBearer(x =>
+{
+    x.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
 
 builder.Services
     .AddControllers()
@@ -11,11 +31,13 @@ builder.Services
     });
 builder.Services.AddDbContext<BlogDataContext>();
 
-builder.Services.AddTransient<TokenService>(); // sempre vai criar uma nova instancia do servico
-// builder.Services.AddScoped(); // ira criar a instancia por requisicao/metodo/action
-// builder.Services.AddSingleton(); // tera uma instancia para a App toda
+builder.Services.AddTransient<TokenService>();
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();
