@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using Blog.Models;
 using Microsoft.IdentityModel.Tokens;
@@ -13,6 +14,12 @@ public class TokenService
         var key = Encoding.ASCII.GetBytes(Configuration.JwtKey); // a chave tem q ser passada como uma array de bytes
         var tokenDescriptor = new SecurityTokenDescriptor
         {
+            Subject = new ClaimsIdentity(new Claim[]
+            {
+                new (ClaimTypes.Name, "andrebaltieri"), // acesso pelo User.Identity.Name
+                new (ClaimTypes.Role, "admin"), // User.IsInRole()
+                new ("fruta", "banana")
+            }), // attr para setar os claims (afirmacaoes sobre o token). E o ASP.NET ja possui alguns tipos de claim
             Expires = DateTime.UtcNow.AddHours(8),
             SigningCredentials = new SigningCredentials
             (
