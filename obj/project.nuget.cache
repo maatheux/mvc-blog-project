@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Rd7wQAZNbefd8oO7UNkxrv960UO3giXAatJq3JVSdSYBinIoBRsYf1eGh1BXGkzRVnZZvMzldXyGo6qz3B2J2Q==",
+  "dgSpecHash": "IwH6zKhD2ahmH2MRuLjWgDUmNTiLMj57l9IucQ/ey4Ci3ySctOlMKKmV0XuAfP2gDunSa+cc/7npGF/MxbjI/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mathe\\Documents\\009-csharp-course\\006-fundamentosAspNet\\Blog\\Blog.csproj",
   "expectedPackageFiles": [
@@ -62,6 +62,7 @@
     "C:\\Users\\Mathe\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Mathe\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Mathe\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Mathe\\.nuget\\packages\\secureidentity\\1.0.4\\secureidentity.1.0.4.nupkg.sha512",
     "C:\\Users\\Mathe\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Mathe\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Mathe\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",

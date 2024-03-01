@@ -131,3 +131,4 @@ C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\obj\Debug\net8.0\ref\Blog.dll
 C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Mathe\Documents\009-csharp-course\006-fundamentosAspNet\Blog\bin\Debug\net8.0\SecureIdentity.dll
