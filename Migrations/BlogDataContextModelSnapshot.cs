@@ -74,7 +74,7 @@ namespace Blog.Migrations
                     b.Property<DateTime>("LastUpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("SMALLDATETIME")
-                        .HasDefaultValue(new DateTime(2024, 2, 28, 21, 39, 58, 902, DateTimeKind.Utc).AddTicks(3605))
+                        .HasDefaultValue(new DateTime(2024, 3, 6, 14, 42, 24, 250, DateTimeKind.Utc).AddTicks(2196))
                         .HasColumnName("LastUpdateDate");
 
                     b.Property<string>("Slug")
@@ -152,7 +152,8 @@ namespace Blog.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Bio");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -161,10 +162,12 @@ namespace Blog.Migrations
                         .HasColumnName("Email");
 
                     b.Property<string>("GitHub")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Github");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Image");
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -35,6 +35,14 @@ builder.Services.AddTransient<TokenService>();
 
 var app = builder.Build();
 
+Configuration.JwtKey = app.Configuration.GetValue<string>("JwtKey");
+Configuration.ApiKey = app.Configuration.GetValue<string>("ApiKey");
+Configuration.ApiKeyName = app.Configuration.GetValue<string>("ApiKeyName");
+
+var smtp = new Configuration.SmtpConfiguration();
+app.Configuration.GetSection("Smtp").Bind(smtp); // ira pegar a section (objeto smtp no json) e converter para a classe
+Configuration.Smtp = smtp;
+
 app.UseAuthentication();
 app.UseAuthorization();
 

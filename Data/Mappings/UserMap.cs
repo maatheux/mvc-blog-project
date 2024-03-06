@@ -29,6 +29,7 @@ public class UserMap : IEntityTypeConfiguration<User>
           .HasMaxLength(80);
 
         builder.Property(x => x.Bio)
+          .HasColumnName("Bio")
           .IsRequired(false);
         
         builder.Property(x => x.Email)
@@ -38,6 +39,7 @@ public class UserMap : IEntityTypeConfiguration<User>
           .HasMaxLength(80);
         
         builder.Property(x => x.Image)
+          .HasColumnName("Image")
           .IsRequired(false);
         
         builder.Property(x => x.PasswordHash)
@@ -46,6 +48,7 @@ public class UserMap : IEntityTypeConfiguration<User>
           .HasMaxLength(255);
         
         builder.Property(x => x.GitHub)
+          .HasColumnName("Github")
           .IsRequired(false);
         
         builder.HasIndex(x => x.Slug, "IX_User_Slug")
