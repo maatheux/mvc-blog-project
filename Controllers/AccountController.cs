@@ -1,9 +1,12 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using Blog.Data;
 using Blog.Extensions;
 using Blog.Models;
 using Blog.Services;
+using Blog.ViewModels.Accounts;
 using Blog.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,8 +40,8 @@ public class AccountController : ControllerBase
 
         try
         {
-            // await context.Users.AddAsync(user);
-            // await context.SaveChangesAsync();
+            await context.Users.AddAsync(user);
+            await context.SaveChangesAsync();
 
             emailService.Send(
                 user.Name,
@@ -94,4 +97,47 @@ public class AccountController : ControllerBase
         }
 
     }
+
+    [Authorize]
+    [HttpPost("v1/accounts/upload-image")]
+    public async Task<IActionResult> UploadImage(
+        [FromBody] UploadImageViewModel model,
+        [FromServices] BlogDataContext context)
+    {
+        var fileName = $"{Guid.NewGuid().ToString()}.jpg"; // evita criar imagem com o mesmo nome e ficar sobrecarregando o cache
+        var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(model.Base64Image, ""); // remover info a mais na string da imagem
+
+        var bytes = Convert.FromBase64String(data);
+
+        try
+        {
+            await System.IO.File.WriteAllBytesAsync($"wwwroot/images/{fileName}", bytes);
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, new ResultViewModel<string>("05X04 - Falha interna no servidor"));
+        }
+
+        var user = await context
+            .Users
+            .FirstOrDefaultAsync(x => x.Email == User.Identity.Name);
+
+        if (user == null)
+            return NotFound(new ResultViewModel<string>("Usuário não encontrado"));
+
+        user.Image = $"https://localhost:0000/images/{fileName}"; // aqui seria o server que a imagem vai ser salva
+
+        try
+        {
+            context.Users.Update(user);
+            await context.SaveChangesAsync();
+
+            return Ok(new ResultViewModel<User>(user));
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, new ResultViewModel<string>("05X04 - Falha interna no servidor"));
+        }
+    }
+    
 }

@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "iHKkzylLStCdz/H62Ga7eUDHbY68jqQS/peP5vtmhCs=",
+  "Hash": "Xqkll38PIxWS2xpCMFFlMiEaXmfJPZTvfIaaUlr2Q2Q=",
   "Source": "Blog",
   "BasePath": "_content/Blog",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Blog/wwwroot",
+      "Source": "Blog",
+      "ContentRoot": "/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/wwwroot/",
+      "BasePath": "_content/Blog",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

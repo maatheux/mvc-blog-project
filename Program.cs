@@ -18,6 +18,10 @@ LoadConfiguration(app);
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseStaticFiles(); // habilita realizarmos transferencia de arquivos estaticos na aplicacao (html, imagens...)
+// quando habilitado ele sempre ira buscar esses arquivos na pasta wwwroot
+// super recomendado utilizar algum serviço de file storage para armazenar esse arquivos
+
 app.MapControllers();
 
 app.Run();
