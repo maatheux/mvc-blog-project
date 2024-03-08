@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8DMKOEz/AkkyWSreOOyhR58+2D1hDLhzVZg1OECBaMKTKxgCUcDAKKH48t4ejxLkP4GK04jEPuXYN/YZRwJkYw==",
+  "dgSpecHash": "nsW6N5uh9WPeZTrGsAB7eNmBkvumm2VKihH+oXXP3o0GdkHIxGbjd4QAGdoFWZxKTtHNopPHSsEItWSIt3RPxQ==",
   "success": true,
   "projectFilePath": "/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/Blog.csproj",
   "expectedPackageFiles": [
@@ -62,7 +62,10 @@
     "/home/matt/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
     "/home/matt/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/matt/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/matt/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/home/matt/.nuget/packages/secureidentity/1.0.4/secureidentity.1.0.4.nupkg.sha512",
+    "/home/matt/.nuget/packages/sendgrid/9.29.2/sendgrid.9.29.2.nupkg.sha512",
+    "/home/matt/.nuget/packages/starkbank-ecdsa/1.3.3/starkbank-ecdsa.1.3.3.nupkg.sha512",
     "/home/matt/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/home/matt/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/matt/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",

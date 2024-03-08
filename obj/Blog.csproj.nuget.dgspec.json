@@ -59,6 +59,10 @@
             "SecureIdentity": {
               "target": "Package",
               "version": "[1.0.4, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.2, )"
             }
           },
           "imports": [

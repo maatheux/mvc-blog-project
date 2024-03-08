@@ -17,6 +17,7 @@ public class AccountController : ControllerBase
     [HttpPost("v1/accounts")]
     public async Task<IActionResult> Register(
         [FromBody] RegisterViewModel model,
+        [FromServices] EmailService emailService,
         [FromServices] BlogDataContext context)
     {
         if (!ModelState.IsValid)
@@ -36,13 +37,19 @@ public class AccountController : ControllerBase
 
         try
         {
-            await context.Users.AddAsync(user);
-            await context.SaveChangesAsync();
+            // await context.Users.AddAsync(user);
+            // await context.SaveChangesAsync();
+
+            emailService.Send(
+                user.Name,
+                user.Email,
+                "Bem vindo ao Blog!",
+                $"Sua senha é <strong>{password}</strong>");
 
             return Ok(new ResultViewModel<dynamic>(new
             {
-                user = user.Email,
-                password
+                user = user.Email
+                //password
             })); // usamos o dynamic pois nao criamos um ViewModel para esse retorno
         }
         catch (DbUpdateException)

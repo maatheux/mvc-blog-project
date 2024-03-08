@@ -266,3 +266,6 @@ C:/Users/Mathe/Documents/009-csharp-course/006-fundamentosAspNet/Blog/bin/Debug/
 /home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/obj/Debug/net8.0/Blog.pdb
 /home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/obj/Debug/net8.0/Blog.genruntimeconfig.cache
 /home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/obj/Debug/net8.0/ref/Blog.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/SendGrid.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/StarkbankEcdsa.dll
