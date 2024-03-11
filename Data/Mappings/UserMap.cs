@@ -47,9 +47,9 @@ public class UserMap : IEntityTypeConfiguration<User>
           .HasColumnName("PasswordHash")
           .HasMaxLength(255);
         
-        builder.Property(x => x.GitHub)
-          .HasColumnName("Github")
-          .IsRequired(false);
+        // builder.Property(x => x.GitHub)
+        //   .HasColumnName("Github")
+        //   .IsRequired(false);
         
         builder.HasIndex(x => x.Slug, "IX_User_Slug")
           .IsUnique();

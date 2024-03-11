@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json.Serialization;
 using Blog;
 using Blog.Data;
 using Blog.Services;
@@ -18,9 +19,7 @@ LoadConfiguration(app);
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseStaticFiles(); // habilita realizarmos transferencia de arquivos estaticos na aplicacao (html, imagens...)
-// quando habilitado ele sempre ira buscar esses arquivos na pasta wwwroot
-// super recomendado utilizar algum serviço de file storage para armazenar esse arquivos
+app.UseStaticFiles();
 
 app.MapControllers();
 
@@ -63,6 +62,11 @@ void ConfigureMvc(WebApplicationBuilder webAppBuilder)
         .ConfigureApiBehaviorOptions(options =>
         {
             options.SuppressModelStateInvalidFilter = true;
+        })
+        .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // ignorar ciclos, quando o obj tem alguma referencia para ele mesmo
+            options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault; // quando o objeto nul ira retornar vazio
         });
 }
 
