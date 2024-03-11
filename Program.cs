@@ -57,6 +57,7 @@ void ConfigureAuthentication(WebApplicationBuilder webAppBuilder)
 
 void ConfigureMvc(WebApplicationBuilder webAppBuilder)
 {
+    webAppBuilder.Services.AddMemoryCache(); // servico de suporte a cache
     webAppBuilder.Services
         .AddControllers()
         .ConfigureApiBehaviorOptions(options =>
@@ -65,8 +66,8 @@ void ConfigureMvc(WebApplicationBuilder webAppBuilder)
         })
         .AddJsonOptions(options =>
         {
-            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // ignorar ciclos, quando o obj tem alguma referencia para ele mesmo
-            options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault; // quando o objeto nul ira retornar vazio
+            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault;
         });
 }
 
