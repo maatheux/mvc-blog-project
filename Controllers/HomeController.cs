@@ -8,10 +8,14 @@ namespace Blog.Controllers
     public class HomeController : ControllerBase
     {
         [HttpGet("")]
-        [ApiKey]
-        public IActionResult Get()
+        //[ApiKey]
+        public IActionResult Get(
+            [FromServices] IConfiguration config)
         {
-            return Ok();
+            return Ok(new
+            {
+                enviroment = config.GetValue<string>("Env")
+            });
         } // HEALTH CHECK --> outras apis/requests conseguem checar a saude (status) dessa API
     }
 }

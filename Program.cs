@@ -18,14 +18,17 @@ var app = builder.Build();
 
 LoadConfiguration(app);
 
+app.UseHttpsRedirection(); // forcar redirecionamento para o HTTPS
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.MapControllers();
+app.UseStaticFiles();
 app.UseResponseCompression();
 
-app.UseStaticFiles();
-
-app.MapControllers();
+if (app.Environment.IsDevelopment())
+{
+    // logica para rodar no dev env
+}
 
 app.Run();
 
