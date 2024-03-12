@@ -14,6 +14,8 @@ ConfigureAuthentication(builder);
 ConfigureMvc(builder);
 ConfigureServices(builder);
 
+builder.Services.AddEndpointsApiExplorer(); // swagger add
+builder.Services.AddSwaggerGen(); // gerar o html do swagger
 
 var app = builder.Build();
 
@@ -28,7 +30,8 @@ app.UseResponseCompression();
 
 if (app.Environment.IsDevelopment())
 {
-    // logica para rodar no dev env
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.Run();
@@ -100,3 +103,5 @@ void ConfigureServices(WebApplicationBuilder webAppBuilder)
     webAppBuilder.Services.AddTransient<TokenService>();
     webAppBuilder.Services.AddTransient<EmailService>();
 }
+
+// dotnet add package Swashbuckle.AspNetCore  --> swagger

@@ -270,3 +270,8 @@ C:/Users/Mathe/Documents/009-csharp-course/006-fundamentosAspNet/Blog/bin/Debug/
 /home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/SendGrid.dll
 /home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/StarkbankEcdsa.dll
 /home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/Blog.staticwebassets.runtime.json
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/matt/Documents/balta-io/backend-net/006-fundamentos-aspnet/mvc-blog-project/obj/Debug/net8.0/Blog.MvcApplicationPartsAssemblyInfo.cs

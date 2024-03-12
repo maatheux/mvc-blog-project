@@ -63,6 +63,10 @@
             "SendGrid": {
               "target": "Package",
               "version": "[9.29.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
